@@ -1,24 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header.js";
 import Home from "./components/Home.js";
 import Checkout from "./components/Checkout";
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Login from "./components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { auth } from "./firebase";
+import { useStateValue } from "./components/StateProvider";
 
 function App() {
+  const [{}, dispatch] = useStateValue();
+
+  useEffect(() => {
+    //will only run once when the app component loads
+    auth.onAuthStateChanged((authUser) => {
+      console.log("THE USER IS >>>", authUser);
+
+      if (authUser) {
+        //the user just loggen in / the user was logged in
+
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        });
+      } else {
+        //the user is logged out
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        })
+      }
+    });
+  }, []);
   return (
-    <BrowserRouter>
+    <Router>
       <div className="app">
-        <Header />
           <Routes>
-            <Route path="/" element={[ <Home /> ]} />
-            <Route path="/checkout" element={<Checkout /> } />
+            <Route path="/login" element={< Login /> } />
+            <Route path="/checkout" element={[ <Header />, <Checkout /> ] } />
+            <Route path="/" element={[ <Header />, <Home /> ]} />
           </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
 export default App;
 
 
+//3:25 App.js path="/Login" to display <Login /> without <Header /> features
