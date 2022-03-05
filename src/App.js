@@ -48,4 +48,3 @@ function App() {
 export default App;
 
 
-//3:25 App.js path="/Login" to display <Login /> without <Header /> features
