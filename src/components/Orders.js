@@ -15,10 +15,12 @@ function Orders() {
           .doc(user.uid)
           .collection('orders')
           .orderBy('created', 'desc')
-          .onSnapshot(snapshot.docs.map(doc => ({
+          .onSnapshot(snapshot => (
+              setOrders(snapshot.docs.map(doc => ({
               id: doc.id,
               data: doc.data()
           })))
+        ))
       } else {
           setOrders([]);
       }
