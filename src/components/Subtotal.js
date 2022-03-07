@@ -29,7 +29,7 @@ function Subtotal() {
             prefix={"$"}
         />
 
-        <button onClick={e => navigate.push("/payment")}>Proceed to Checout</button>
+        <button onClick={e => navigate("/payment")}>Proceed to Checout</button>
     </div>
   );
 }

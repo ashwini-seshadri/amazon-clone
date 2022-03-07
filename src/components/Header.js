@@ -5,11 +5,7 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "../firebase";
-//import "firebase/compat/auth";
 
-//import firebase from "firebase/compat/app";
-
-//import "firebase/compat/firestore"
 
 function Header() {
     const [{ basket, user }, dispatch] = useStateValue();

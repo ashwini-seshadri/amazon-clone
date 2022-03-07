@@ -4,9 +4,17 @@ import Header from "./components/Header.js";
 import Home from "./components/Home.js";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
+import Payment from "./components/Payment";
+import Orders from "./components/Orders";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { auth } from "./firebase";
 import { useStateValue } from "./components/StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+require('dotenv').config();
+
+const promise = loadStripe("Stripe_API_Key");
+
 
 function App() {
   // eslint-disable-next-line
@@ -14,6 +22,7 @@ function App() {
 
   useEffect(() => {
     //will only run once when the app component loads
+    
     auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>>", authUser);
 
@@ -39,7 +48,9 @@ function App() {
       <div className="app">
           <Routes>
             <Route path="/login" element={< Login /> } />
-            <Route path="/checkout" element={[ <Header />, <Checkout /> ] } />
+            <Route path="/checkout" element={[ <Header />, <Checkout /> ]} />
+            <Route path="/payment" element={[ <Header />, <Elements stripe={promise}> <Payment /> </Elements> ]} />
+            <Route path="/orders" element={[ <Header />, <Orders />]} />
             <Route path="/" element={[ <Header />, <Home /> ]} />
           </Routes>
       </div>
