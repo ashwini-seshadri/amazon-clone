@@ -37,7 +37,7 @@ function Payment() {
   }, [basket])
 
   console.log("THE SECRET IS >>>", clientSecret)
-  console.log("", user) //add female image
+  console.log("Hello", user)
 
   const handleSubmit = async (event) => {
       // fancy stripe stuff

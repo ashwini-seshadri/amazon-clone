@@ -1,8 +1,13 @@
+//import functions from "firebase-functions";
+//import express from "express";
+//import cors from "cors";
+//import { stripe, stripeAPI_Key } from "stripe";
+
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 const stripe = require("stripe")(stripeAPI_Key);
+require("dotenv").config();
 
 // API
 

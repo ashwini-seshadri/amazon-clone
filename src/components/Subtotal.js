@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/subtotal.css";
 import CurrencyFormat from "react-currency-format";
-//import { SportsBasketball } from "@mui/icons-material";
 import { useStateValue } from "./StateProvider";
 import { getBasketTotal } from "./reducer";
 import { useNavigate } from "react-router-dom";

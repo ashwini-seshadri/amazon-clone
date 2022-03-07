@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   root: true,
   env: {
     es6: true,
@@ -12,6 +12,7 @@ module.exports = {
     quotes: ["error", "double"],
   },
   parserOptions: {
-    "exmaVersion": 2020,
+    "ecmaVersion": 2020,
   },
+  "parser": "babel-eslint",
 };
