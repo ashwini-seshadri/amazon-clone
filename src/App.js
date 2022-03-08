@@ -11,9 +11,8 @@ import { auth } from "./firebase";
 import { useStateValue } from "./components/StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-require('dotenv').config();
 
-const Stripe_API_Key = process.env.FE_STRIPE_API_KEY;
+const Stripe_API_Key = process.env.REACT_APP_FE_STRIPE_API_KEY;
 
 const promise = loadStripe(Stripe_API_Key);
 
