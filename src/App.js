@@ -13,7 +13,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 require('dotenv').config();
 
-const promise = loadStripe("Stripe_API_Key");
+const Stripe_API_Key = process.env.FE_STRIPE_API_KEY;
+
+const promise = loadStripe(Stripe_API_Key);
 
 
 function App() {

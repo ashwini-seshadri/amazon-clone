@@ -8,6 +8,7 @@ import { auth } from "../firebase";
 
 
 function Header() {
+    // eslint-disable-next-line
     const [{ basket, user }, dispatch] = useStateValue();
 
     const handleAuthentication = () => {

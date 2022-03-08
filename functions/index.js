@@ -2,12 +2,14 @@
 //import express from "express";
 //import cors from "cors";
 //import { stripe, stripeAPI_Key } from "stripe";
-
+//import "./.eslintrc.cjs";
 const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
-const stripe = require("stripe")(stripeAPI_Key);
 require("dotenv").config();
+const StripeAPI = process.env.STRIPE_API_KEY;
+const stripe = require("stripe")(StripeAPI);
+
 
 // API
 

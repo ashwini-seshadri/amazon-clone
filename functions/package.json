@@ -14,12 +14,16 @@
   },
   "main": "index.js",
   "dependencies": {
+    "and": "^0.0.3",
     "babel-eslint": "^10.1.0",
+    "cache": "^2.3.1",
+    "clean": "^4.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
+    "npm": "^8.5.3",
     "stripe": "^8.207.0"
   },
   "devDependencies": {
@@ -29,6 +33,5 @@
     "firebase-functions-test": "^0.2.0"
   },
   "parser": "babel-eslint",
-  "private": true,
-  "type": "module"
+  "private": true
 }

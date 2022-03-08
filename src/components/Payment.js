@@ -1,12 +1,12 @@
 import React, { useState, useEffect} from "react";
-import "../styles/payment";
+import "../styles/payment.css";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
-import axios from "./axios";
+import axios from "../axios";
 import { db } from "../firebase";
 
 
@@ -44,6 +44,7 @@ function Payment() {
       event.preventDefault();
       setProcessing(true);
 
+      // eslint-disable-next-line
       const payload = await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
               card: elements.getElement(CardElement)
